@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   BarChart3,
   Command,
-  Gear,
+  Settings,
   Home,
   LineChart,
   Share2,
@@ -58,7 +58,7 @@ export default function AppSidebar() {
               active={path === "/console"}
             />
             <SidebarItem
-              icon={Gear}
+              icon={Settings}
               label="Strategy"
               to="/strategy"
               active={path === "/strategy"}
