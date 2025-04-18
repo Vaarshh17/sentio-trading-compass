@@ -1,10 +1,15 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import MainLayout from "./components/layout/MainLayout";
+import Dashboard from "./pages/Dashboard";
+import Console from "./pages/Console";
+import Strategy from "./pages/Strategy";
+import Risk from "./pages/Risk";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +20,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/console" element={<Console />} />
+            <Route path="/strategy" element={<Strategy />} />
+            <Route path="/risk" element={<Risk />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
